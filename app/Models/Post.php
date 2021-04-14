@@ -11,6 +11,8 @@ class Post extends Model
 
     protected $fillable = ['id', 'content', 'user_id'];
 
+    protected $with = ['comments'];
+
     public function comments()
     {
         return $this->belongsToMany(Comment::class);
