@@ -19,3 +19,8 @@ Route::prefix('auth-example')->group(function () {
     Route::post('login', 'GuardController@login');
     Route::get('show', 'GuardController@show');
 });
+
+//Job
+Route::prefix('job-example')->group(function () {
+    Route::get('start', 'JobController@start');
+});
