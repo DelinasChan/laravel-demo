@@ -34,8 +34,7 @@ class GuardController extends Controller
     public function login(Request $request)
     {
         $payload = $request->only('email', 'account', 'password');
-        $result = auth()->attempt($payload);
-        if (auth()->attempt($payload)) {
+        if ($result = auth('users')->attempt($payload)) {
             return [
                 'status' => true,
                 'message' => '登入成功',
@@ -51,6 +50,6 @@ class GuardController extends Controller
     //顯示當前登入會員
     public function show()
     {
-        return auth()->user();
+        return auth('users')->user();
     }
 }
