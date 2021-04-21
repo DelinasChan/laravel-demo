@@ -5,5 +5,5 @@ RUN apk update
 # install php gd extension
 RUN apk add gd
 RUN docker-php-ext-install pdo pdo_mysql
-
+RUN chown -R www-data:www-data /var/www/html
 WORKDIR /var/www/html

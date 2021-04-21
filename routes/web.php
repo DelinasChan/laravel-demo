@@ -20,7 +20,28 @@ Route::prefix('auth-example')->group(function () {
     Route::get('show', 'GuardController@show');
 });
 
-//Job
+//Command Job
 Route::prefix('job-example')->group(function () {
     Route::get('start', 'JobController@start');
+});
+
+//活動紀錄
+Route::prefix('activity-example')->group(function () {
+
+    Route::prefix('post')->group(function () {
+        //取得文章
+        Route::get('{id}', 'ActivityController@createPost');
+        //建立文章
+        Route::post('', 'ActivityController@createPost');
+        //刪除文章
+        Route::put('{id}', 'ActivityController@editPost');
+        //編輯文章
+        Route::delete('{id}', 'ActivityController@deletePost');
+    });
+
+});
+
+Route::get('test', function () {
+    //呼叫 Heleprs.php 的方法
+    test();
 });
